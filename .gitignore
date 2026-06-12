@@ -1,0 +1,10 @@
+# Coordination / meeting material is intentionally LOCAL-ONLY.
+# Nothing under private/ is ever published — call links, schedules, and
+# attendee coordination must not be public (no uninvited drop-ins).
+private/
+
+# Editor / OS noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
