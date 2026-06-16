@@ -1,7 +1,9 @@
 # agentproto BOF — dossier (public)
 
-**Agent Communication Protocols** · mnemonic `agentproto` · approved
-**WG-forming** BOF · ART area · AD Charles Eckel · 2h · ~200 expected.
+**Agent Communication Protocols** · mnemonic `agentproto` ·
+[datatracker](https://datatracker.ietf.org/group/agentproto/about/) ·
+WG-forming BOF (not yet chartered) · ART area · AD Charles Eckel ·
+chairs Leslie Daigle & Orie Steele · 2h · ~200 expected.
 Source: `bofreq-krishnan-agent-communication-protocols-02` and the public draft
 charter at <https://github.com/jdrosen/aiproto-wg>.
 

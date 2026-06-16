@@ -1,4 +1,4 @@
-# IETF 126 BOF prep
+# IETF 126 — agentproto BOF prep
 
 Public notes and curated links for preparing for the **agentproto** BOF
 (*Agent Communication Protocols*) at **IETF 126, Vienna, 18–24 July 2026**.
@@ -12,18 +12,21 @@ coordination details are intentionally **not** published (kept local; see
 | | |
 |---|---|
 | **Name** | Agent Communication Protocols |
-| **Datatracker mnemonic** | `agentproto` |
-| **Proposed WG name (charter)** | `aiproto` — "AI Agent Protocols Working Group" |
-| **Status** | Approved — **WG-forming** BOF |
+| **Acronym** | `agentproto` |
+| **Datatracker** | <https://datatracker.ietf.org/group/agentproto/about/> |
+| **Status** | WG-forming BOF — not yet chartered |
 | **Area** | Applications & Real-Time (ART) |
+| **Chairs** | Leslie Daigle, Orie Steele |
 | **Responsible AD** | Charles Eckel |
 | **Format** | 2 hours · ~200 expected |
-| **Mailing list** | `agent2agent@ietf.org` |
-| **Zulip** | stream `agentproto` |
-| **BOF request** | `bofreq-krishnan-agent-communication-protocols-02` (approved 2026-06-03) |
+| **Mailing list** | [`agent2agent@ietf.org`](https://mailarchive.ietf.org/arch/browse/agent2agent/) |
+| **Zulip** | [stream `agentproto`](https://zulip.ietf.org/#narrow/stream/agentproto) |
+| **BOF request** | [`bofreq-krishnan-agent-communication-protocols-02`](https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/) (approved 2026-06-03) |
 
-> The datatracker BOF mnemonic is `agentproto`; the draft charter names the WG
-> `aiproto`. The naming is not yet settled.
+> **Naming:** the IETF datatracker is authoritative — the group is **Agent
+> Communication Protocols**, mnemonic `agentproto`. The proponents' charter
+> draft historically used the name `aiproto` (see the charter repo below);
+> `agentproto` is the name to use.
 
 ## Contents
 
