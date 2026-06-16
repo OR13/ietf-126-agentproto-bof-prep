@@ -23,24 +23,11 @@ coordination details are intentionally **not** published (kept local; see
 | **Zulip** | [stream `agentproto`](https://zulip.ietf.org/#narrow/stream/agentproto) |
 | **BOF request** | [`bofreq-krishnan-agent-communication-protocols-02`](https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/) (approved 2026-06-03) |
 
-> **Naming:** the IETF datatracker is authoritative — the group is **Agent
-> Communication Protocols**, mnemonic `agentproto`. The proponents' charter
-> draft historically used the name `aiproto` (see the charter repo below);
-> `agentproto` is the name to use.
-
 ## Contents
 
 - [`bof.md`](bof.md) — BOF dossier: problem statement, scope, deliverables (public).
-- [`drafts.md`](drafts.md) — input Internet-Drafts + summaries.
-- [`links.md`](links.md) — curated links (datatracker, charter repo, lists, venue).
-
-## Where the technical work happens
-
-The **charter and protocol drafting** live in the proponents' repo —
-contribute there, not here:
-
-- **<https://github.com/jdrosen/aiproto-wg>** — charter + meeting materials
-  (Jonathan Rosenberg, Suresh Krishnan, et al.).
+- [`drafts.md`](drafts.md) — input Internet-Drafts cited by the BOF request.
+- [`links.md`](links.md) — related IETF datatracker links.
 
 ## Note on scope of this repo
 

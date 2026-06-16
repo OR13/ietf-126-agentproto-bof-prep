@@ -1,25 +1,14 @@
-# Curated links (public)
+# Related datatracker links (public)
 
-## BOF & process
-- BOF request (`bofreq-krishnan-agent-communication-protocols-02`): <https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/>
-- BOF group page: <https://datatracker.ietf.org/group/agentproto/about/>
-- All BOF requests: <https://datatracker.ietf.org/doc/bof-requests/>
-- BOF process: <https://www.ietf.org/process/bofs/>
+Links to IETF datatracker pages and documents for the agentproto BOF. The group
+page below also surfaces the mailing list and Zulip stream.
 
-## Charter / technical
-- Charter repo (proponents): <https://github.com/jdrosen/aiproto-wg>
-- aiproto framework draft: <https://datatracker.ietf.org/doc/draft-rosenberg-aiproto-framework/>
+## Group
+- Group page: <https://datatracker.ietf.org/group/agentproto/about/>
+- BOF request `bofreq-krishnan-agent-communication-protocols-02`: <https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/>
 
-## Discussion
-- Mailing list `agent2agent@ietf.org`: <https://www.ietf.org/mailman/listinfo/agent2agent>
-- List archive: <https://mailarchive.ietf.org/arch/browse/agent2agent/>
-- Zulip stream `agentproto`: <https://zulip.ietf.org/#narrow/stream/agentproto>
+## Input drafts
+- See [`drafts.md`](drafts.md) — the Internet-Drafts cited by the BOF request, each linked to the datatracker.
 
-## Meeting logistics
-- IETF 126 (Vienna): <https://www.ietf.org/meeting/126/>
-- Registration: <https://registration.ietf.org/126/>
-- Important dates: <https://datatracker.ietf.org/meeting/important-dates/>
-- Meeting agenda: <https://datatracker.ietf.org/meeting/agenda>
-
-## Related WGs
+## Related groups
 - `webbotauth` (agent authentication; charter dependency): <https://datatracker.ietf.org/group/webbotauth/about/>

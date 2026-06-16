@@ -4,8 +4,7 @@
 [datatracker](https://datatracker.ietf.org/group/agentproto/about/) ·
 WG-forming BOF (not yet chartered) · ART area · AD Charles Eckel ·
 chairs Leslie Daigle & Orie Steele · 2h · ~200 expected.
-Source: `bofreq-krishnan-agent-communication-protocols-02` and the public draft
-charter at <https://github.com/jdrosen/aiproto-wg>.
+Source: [`bofreq-krishnan-agent-communication-protocols-02`](https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/).
 
 ## Problem statement
 
@@ -24,7 +23,7 @@ the protocol building blocks that enable this.
 - **Privacy** — exchanges can carry PII and payment data; must be protected.
 - **Voice + low latency** — fast barge-in/interruption, agent↔agent too.
 
-## Proposed deliverables (from the draft charter — 4, standards-track)
+## Proposed deliverables (4, standards-track)
 
 1. **AI Agent session protocol** — long-lived, scalable, failure-surviving
    bidirectional sessions carrying real-time (voice), semi-real-time (chat), and
@@ -39,11 +38,8 @@ the protocol building blocks that enable this.
 4. **OAuth limited-scope tokens** — bound to the specific operations an agent is
    permitted to perform. *(Charter notes this might be better in the OAuth WG.)*
 
-The charter states aiproto expects to **work closely with the `webbotauth` WG**
-for agent authentication.
-
-> The original BOF request listed 2 deliverables (session protocol + a generic
-> framework); the public charter has since expanded to the 4 above.
+The BOF expects to **work closely with the `webbotauth` WG** for agent
+authentication.
 
 ## Acknowledged prior art
 
