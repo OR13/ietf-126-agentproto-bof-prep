@@ -20,7 +20,7 @@ is an official, unmodifiable slide.
    [`agentproto-ietf126-content.md`](agentproto-ietf126-content.md), placed
    **after** the Note Well.
 5. Export and attach to the IETF 126 session (see issue
-   [#1](https://github.com/OR13/ietf-126-bof-prep/issues/1)).
+   [#1](https://github.com/OR13/ietf-126-agentproto-bof-prep/issues/1)).
 
 ## Files
 
