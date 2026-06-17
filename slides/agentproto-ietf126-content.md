@@ -69,7 +69,7 @@ protocols. By the end we want consensus on:
 - AI-agent interoperability discussed in IETF **side meetings** (IETF 123, 124)
   and coordinated via **CATALIST** (IETF 125).
 - Ongoing discussion on **agent2agent@ietf.org**.
-- Strawman charter developed in the open: `jdrosen/aiproto-wg`.
+- Strawman charter: <https://github.com/jdrosen/aiproto-wg>.
 - This session is the **WG-forming BOF** that work was building toward.
 
 *(Mention CATALIST only as prior coordination — this BOF stands on its own.)*
@@ -146,11 +146,9 @@ standardized protocol building blocks. **That interoperability is the work.**
 
 ## [Charter]  Draft charter
 
-Strawman charter developed in the open — please read & comment on the list:
+Strawman charter:
 
-- Repo: <https://github.com/jdrosen/aiproto-wg>
-- Naming: datatracker mnemonic `agentproto`; charter proposes WG name
-  `aiproto` — to be settled.
+- <https://github.com/jdrosen/aiproto-wg>
 
 ---
 
