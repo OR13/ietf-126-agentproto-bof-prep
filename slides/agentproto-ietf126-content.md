@@ -16,7 +16,7 @@
 
 WG-forming BOF · IETF 126, Vienna · ‹day / time / room›
 
-Co-chairs: ‹you› · ‹co-chair›
+Co-chairs: Leslie Daigle · Orie Steele
 Responsible AD: Charles Eckel (ART)
 List: agent2agent@ietf.org · Zulip: `agentproto`
 
@@ -82,41 +82,47 @@ AI agents — autonomous software using LLMs to do tasks for users, often over
 chat or voice — increasingly interact with Internet resources: **tools (APIs)**
 and **other agents**.
 
-These interactions are today **per-vendor and non-interoperable**. Enabling
-tools and agents from *different* vendors to work together needs open,
-standardized protocol building blocks. **That interoperability is the work.**
+These interactions are today largely **per-vendor and non-interoperable**. The
+BOF request proposes standardizing open, vendor-neutral building blocks so that
+tools and agents from *different* vendors can interoperate.
 
 ---
 
-## [Why different]  What makes agent protocols unique
+## [Considerations]  Called out in the BOF request as unique to agent protocols
 
-- **Hallucination** (incl. of tool use) → risk when agents act wrongly → need
-  user-approval / confirmation mechanisms.
+- **Hallucination** (incl. of tool use) → risk when agents act wrongly;
+  motivates user-approval / confirmation mechanisms.
 - **Long-lived, context-heavy** sessions → reliability + transport.
-- **Privacy** — exchanges carry PII / payment data → must be protected.
+- **Privacy** — exchanges carry PII / payment data.
 - **Voice + very low latency** — fast barge-in / interruption, agent↔agent too.
 
 ---
 
-## [Why IETF / why now]
+## [Why IETF / why now]  The request's case — consensus question 2
 
-- The transport, identity & authorization building blocks are IETF's home turf:
+The BOF request points to:
+
+- Transport, identity & authorization building blocks already in IETF:
   **OAuth, MoQ, WebTransport, QUIC, DNS.**
-- Relevant areas: **ART, SEC, WIT** (some INT). Some pieces may land in
+- Relevant areas: **ART, SEC, WIT** (some INT); some pieces may land in
   **existing WGs** (e.g. OAuth) once requirements are clear.
-- The ecosystem (MCP, A2A, AGNTCY) is converging **now** — interoperability
-  work is timely before silos harden.
+- Convergence across **MCP, A2A, AGNTCY** as motivation for timing.
+
+*Whether the IETF is the right venue is consensus question 2.*
 
 ---
 
 ## [Scope]  Proposed deliverables (standards-track)
+
+*As proposed in the BOF request. Whether this is the right cut is consensus
+question 3.*
 
 1. **AI Agent session protocol** — long-lived, scalable, failure-surviving
    bidirectional sessions carrying real-time (voice), semi-real-time (chat), and
    non-real-time (tool I/O) data concurrently; over WebTransport / MoQ; usable
    by non-IETF protocols (MCP, A2A). *Foundational layer.*
 2. **Agent-to-Agent protocol** — one agent invokes another; user-message
-   exchange + lifecycle; next-gen of the Linux Foundation A2A; built on (1).
+   exchange + lifecycle; built on (1).
 3. **Human-confirmation protocol** — confirm agent-invoked operations at the
    orchestration layer; **cryptographic attestation / non-repudiation**.
 4. **Constrained access tokens** — OAuth tokens with operation-bound, minimal
@@ -135,7 +141,7 @@ standardized protocol building blocks. **That interoperability is the work.**
 
 ## [Relationships]  Relationship to other work
 
-- **MCP / A2A (Linux Foundation) / AGNTCY** — prior art; layer on / next-gen.
+- **MCP / A2A (Linux Foundation) / AGNTCY** — related existing work.
 - **webbotauth WG** — dependency for agent authentication.
 - **OAuth WG** — deliverable (4) may belong there.
 - **MoQ / WebTransport / QUIC / DNS** — reused transport & discovery blocks.
