@@ -28,8 +28,11 @@ coordination details are intentionally **not** published (kept local; see
 - [`bof.md`](bof.md) — BOF dossier: problem statement, scope, deliverables (public).
 - [`drafts.md`](drafts.md) — input Internet-Drafts cited by the BOF request.
 - [`links.md`](links.md) — related IETF datatracker links.
+- [`timeline.md`](timeline.md) — public milestones & deadlines we're hitting.
 
 ## Note on scope of this repo
 
-Public only. No agendas, attendee lists, call links, or schedules — those are
-coordination details and live outside version control.
+Public only. Public IETF deadlines and our milestones live in
+[`timeline.md`](timeline.md). Private **coordination** — session agendas,
+attendee lists, call links, prep-call schedules — is not published; it lives
+outside version control.
