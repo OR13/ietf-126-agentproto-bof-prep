@@ -22,7 +22,9 @@ All deadlines are **UTC 23:59** on the date shown.
    agenda lock, with drafts complete by **07-08**. No slide changes after the
    agenda is final, barring errata.
 
-## Not yet locked
+## Session slot
 
-- **Session slot** (day / time / room) — set during scheduling once the
-  preliminary agenda is built; until then the deck carries placeholders.
+- **Thursday 23 July 2026, 09:00–11:00 CEST**, Vienna — per the draft IETF 126
+  [agenda](https://datatracker.ietf.org/meeting/126/agenda). **2-hour** slot.
+- **Room: TBD** — not yet assigned.
+- *Draft — may shift until the agenda is final (revised agendas due 07-13).*
