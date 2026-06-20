@@ -14,7 +14,7 @@
 
 ## [Title]  Agent Communication Protocols (`agentproto`)
 
-WG-forming BOF · IETF 126, Vienna · Thu 23 Jul, 09:00–11:00 (CEST) · ‹room TBD›
+WG-forming BOF · IETF 126, Vienna · Thu 23 Jul, 09:00–11:00 (CEST) · Grand Park Hall 3
 
 Co-chairs: Leslie Daigle · Orie Steele
 Responsible AD: Charles Eckel (ART)

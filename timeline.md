@@ -26,5 +26,5 @@ All deadlines are **UTC 23:59** on the date shown.
 
 - **Thursday 23 July 2026, 09:00–11:00 CEST**, Vienna — per the draft IETF 126
   [agenda](https://datatracker.ietf.org/meeting/126/agenda). **2-hour** slot.
-- **Room: TBD** — not yet assigned.
+- **Room: Grand Park Hall 3**.
 - *Draft — may shift until the agenda is final (revised agendas due 07-13).*
