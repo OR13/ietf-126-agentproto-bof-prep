@@ -87,9 +87,6 @@ Both fall under deliverable 3, and the order between them is the point.
 2. **Transport selection.** One transport chosen against those criteria, with
    the reasoning in the record.
 
-Criteria first and in public, because the choice among modern IETF transports is
-contested and a selection without stated criteria gets relitigated indefinitely.
-
 ## Links
 
 - Draft charter: <https://github.com/ietf-artarea/charters/blob/main/agentproto/charter.md>
