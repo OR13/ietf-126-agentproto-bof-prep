@@ -73,12 +73,6 @@ join, leave, and handoff — without reference to any particular transport.
 selected IETF transport, so two vendors implementing it interoperate off the
 shelf.
 
-The semantics document states the problem in terms that transfer to any stack,
-the substrate answers it, and the binding makes that answer deployable on one
-wire. Only the last of the three needs the one before it. A team can take the
-semantics to audit a system it already runs, or implement the substrate over a
-transport it has already committed to, and stop there.
-
 ### Milestones
 
 Both fall under deliverable 3, and the order between them is the point.
