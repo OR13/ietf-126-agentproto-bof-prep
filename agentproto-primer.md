@@ -26,16 +26,17 @@ invalidate work in flight. Told "cancel the hotel, keep the flight," an agent's
 cancellation must overtake an in-flight bulk payload, across hops, across
 organizational boundaries.
 
-Existing protocols each miss part of it:
+A2A is the closest existing answer, and it is shaped for a different problem.
+Its model is request/response with server-streamed task updates, so continuous
+client-to-server flow has no expression in it and barge-in travels the wrong
+direction. Cancellation is a separate call at task granularity, unable to
+preempt bytes already in flight. Media rides as a part of a message, modelled as
+a file rather than a flow, with no way to say that this audio stays continuous
+while that artifact waits. `contextId` correlates tasks within one server's
+view; it is a key, not a means of carrying context across a trust boundary.
 
-- **HTTP** — stateless; no multi-turn session context.
-- **WebSocket** — no multiplexing, prioritization, or partial teardown.
-- **SIP / WebRTC** — strong session establishment; not built for persistent,
-  portable context that evolves over long durations and moves across devices.
-- **MoQ** — nearest fit for the streaming, not designed for control-plane state.
-
-Inside one platform, engineers assemble these with proprietary glue. Across
-trust domains, every choice has to be negotiated bilaterally first.
+That serves task delegation well. It does not stretch to realtime media, and
+stretching it is what this work would avoid.
 
 Success: two stacks built independently from these documents, by different
 organizations, establish a multimodal realtime session — including a mid-stream
