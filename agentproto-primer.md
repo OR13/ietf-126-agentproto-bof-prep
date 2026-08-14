@@ -10,49 +10,62 @@ statement.
 
 ## Problem statement
 
-There is a need to enable interoperable cross-trust-domain realtime media
-communications, to deliver cost-effective streaming-media-based agentic
-experiences at Internet scale.
+Two agents in different trust domains cannot hold a realtime conversation over
+any standard protocol. Each deployment that needs one builds its own stack, so
+integration cost grows with the number of pairs rather than the number of
+participants.
 
-Every clause is load-bearing. **Realtime media** is the case that existing
-request/response plumbing does not serve: voice and video moving between
-participants while text and tool results move alongside them, with interruption
-and cancellation that must preempt work already in flight. **Cross trust domain**
-is what makes it an interoperability problem rather than a framework problem —
-inside one vendor's deployment this is already solved, badly and privately, N
-times over. **Cost-effective at Internet scale** is the constraint that rules out
-answers that work in a demo and collapse at fanout. And **agentic experiences**
-is the demand driver, not a new physics: agents are why this traffic pattern
-suddenly matters, not why it is hard.
+The gap is specific. A single agent conversation carries flows with
+incompatible latency requirements at the same time: voice and video that must
+arrive continuously, chat that tolerates hundreds of milliseconds, and tool
+inputs and outputs that are often large and can wait. Those flows stay coupled,
+because a control message can invalidate work already in flight. An agent
+booking travel is told "cancel the hotel, keep the flight," and the cancellation
+has to overtake a bulk transfer already underway, across parties and across
+hops.
+
+No existing protocol covers that combination. HTTP is stateless and carries no
+interaction that survives a turn. WebSocket offers no multiplexing, no priority,
+and no partial teardown. SIP and WebRTC establish sessions but manage context
+mostly at initiation, where here the context has to persist and travel with a
+participant across devices and time. MoQ is the closest fit and was not designed
+for this traffic.
+
+Within one operator's network these pieces get assembled privately, and they
+are, repeatedly. The problem surfaces at the boundary. Once a conversation spans
+two organizations, every assembly decision has to be agreed in advance, and
+today it is agreed bilaterally or not at all — which is the cost that scales
+badly.
+
+Success is checkable: two implementations built independently from these
+documents, run by different organizations, hold a multimodal realtime
+conversation — including an interruption that crosses the trust boundary —
+with no prior bilateral arrangement.
 
 ## Scoping
 
-The working group addresses this problem **in layers**, and the layering is a
-deliberate adoption strategy rather than a taxonomy. An implementer must be able
-to take one deliverable and benefit from it without taking the others. Someone
-who only needs a shared vocabulary should get value from the first layer alone.
+The working group addresses this in layers, and an implementer must be able to
+take one deliverable and benefit from it without taking the rest. Someone who
+needs only a shared vocabulary should get value from the first layer alone.
 Someone who has already committed to a transport should be able to implement the
-substrate over it without waiting for the working group's own binding. Partial
-adoption is a design goal, and any deliverable that can only be used as part of
-the full set has failed this test.
+substrate over it without waiting for the working group's own binding. A
+deliverable usable only as part of the full set has failed this test.
 
-Two things are explicitly **out of scope**.
+Two areas are out of scope.
 
-**Security** — identity, authentication, authorization, and credentialing — is
-consumed, not defined. Agent identity work belongs in WIMSE, delegated
-authorization in OAuth, automated-client authentication in webbotauth. The
-working group will state what security properties its deliverables require and
-raise gaps with the groups that own those mechanisms. It will not specify them
-here.
+**Security** — identity, authentication, authorization, credentialing — is
+consumed here and defined elsewhere. Agent identity belongs in WIMSE, delegated
+authorization in OAuth, automated-client authentication in webbotauth. This
+group states the security properties its deliverables depend on and raises gaps
+with the groups that own the mechanisms.
 
-**Discovery** is out of scope. How a party finds another party, and how
-capabilities are advertised and resolved, is a separate problem with separate
-existing work. The deliverables assume the participants have already found each
-other.
+**Discovery** is out of scope. How one party finds another, and how capabilities
+are advertised and resolved, is separate work. These deliverables assume the
+participants have already found each other.
 
-Both exclusions are scope discipline, not dismissals. A cross-trust-domain
-protocol that ignored security would be useless; the position is that this group
-consumes those mechanisms rather than reinventing them.
+Excluding both is a bet that the group moves faster consuming that work than
+relitigating it. A cross-trust-domain protocol still has to satisfy the security
+properties; it just does not specify them.
 
 ## The layers, as deliverables
 
@@ -63,13 +76,12 @@ vocabulary for the challenges and opportunities that arise as communication
 scales and changes to support human and agent collaboration.
 
 This layer names things: participant, turn, interruption, context, modality,
-trust boundary, handoff. It does not specify bits. Its value is that two
-implementers who have never spoken can describe the same failure to each other
-and agree they are describing the same failure. It is also the layer that makes
-the case — the interaction patterns documented here are the evidence that the
-substrate is needed and the yardstick the substrate is measured against.
+trust boundary, handoff. It specifies no bits. Two implementers who have never
+spoken should be able to use it to describe the same failure and recognize it as
+the same failure. The interaction patterns documented here are also the evidence
+that the substrate is needed, and the yardstick it gets measured against.
 
-Usable alone, by anyone writing about agent communication or evaluating an
+Usable alone by anyone writing about agent communication, or evaluating an
 existing protocol against the problem statement.
 
 ### 2. Substrate (Proposed Standard)
@@ -77,42 +89,39 @@ existing protocol against the problem statement.
 Specifies how the semantics fit together to solve the problem, without binding
 to a specific transport.
 
-This is the protocol: how a realtime interaction is established, how context is
-carried and propagated across a trust boundary, how modalities are negotiated
-and multiplexed, how interruption and cancellation propagate, how a participant
-joins, leaves, or is replaced. Transport independence is not architectural
-tidiness — it is the requirement that this interoperability is needed in more
-than one deployment context, and a substrate welded to one transport can only
-serve one of them.
+This is the protocol: establishing a realtime interaction, carrying context
+across a trust boundary, negotiating and multiplexing modalities, propagating
+interruption and cancellation, and handling a participant that joins, leaves, or
+is replaced. Transport independence follows from the problem statement — this
+interoperability is needed in more than one deployment context, and a substrate
+welded to a single transport serves only one of them.
 
-Usable alone, by anyone willing to specify their own binding over a transport
+Usable alone by anyone willing to specify their own binding over a transport
 they have already chosen.
 
 ### 3. Substrate binding (Proposed Standard)
 
 The working group shall determine how to evaluate candidate transports, select
-one, and specify a concrete binding that, when deployed, addresses the problem
-statement.
+one, and specify a concrete binding that addresses the problem statement when
+deployed.
 
-Two deliverables in sequence: the evaluation criteria, then the binding. The
-criteria come first and in public, because the choice among modern IETF
-transports is contested and a selection without stated criteria will be
-relitigated indefinitely. The binding is what turns the substrate from a
-specification into something two vendors can deploy and interoperate on.
+Two pieces in sequence: the evaluation criteria, then the binding. Criteria come
+first and in public, because the choice among modern IETF transports is
+contested and a selection without stated criteria gets relitigated indefinitely.
+The binding is what turns the substrate into something two vendors can deploy
+and interoperate on.
 
-Usable alone only in the sense that it is the fastest path to running code — it
-depends on layer two by construction, which is the one place the layering does
-not buy independence.
+This layer depends on layer two by construction — the one place the layering
+buys no independence.
 
 ## Why this framing
 
 The WG-forming BOF at IETF 126 supported the work and rejected the scope as
 drawn. On a sense of the room — a hum, not a binding vote — a working group
 should be formed (154 yes / 51 no), and the initial scope was not correct (38
-yes / 124 no / 40 no opinion). The layering above is a response to that: a
-narrower problem statement, deliverables that are separable, and two explicit
-exclusions where the previous draft invited overlap with groups that already own
-the work.
+yes / 124 no / 40 no opinion). The layering above responds to that with a
+narrower problem statement, separable deliverables, and two explicit exclusions
+where the earlier draft invited overlap with groups that already own the work.
 
 ## Links
 
