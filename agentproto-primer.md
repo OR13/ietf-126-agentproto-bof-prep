@@ -49,6 +49,15 @@ without the others.
 
 Out of scope:
 
+**Agent to tool.** MCP defines how an agent invokes a tool and receives a
+result; this work does not redefine it. Tool payloads ride the substrate as one
+of its flow classes, but the calling convention that produces them is MCP's.
+
+**Agent to inference.** How an agent reaches the model driving it runs over
+proprietary inference APIs. That exchange is request/response with a streamed
+response, which those APIs already serve, and it is not the mixed-media,
+multi-party case this work exists for.
+
 **Security.** Identity, authentication, authorization: consumed, not invented.
 Agent identity in WIMSE, delegated authorization in OAuth, automated-client
 authentication in webbotauth. This group states the security properties it
