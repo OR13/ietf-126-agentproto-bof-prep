@@ -59,24 +59,25 @@ found each other.
 
 ## Deliverables
 
-**1. Semantics (Informational).** Names what a realtime agent interaction is
-made of — participant, turn, interruption, context, modality, trust boundary,
-handoff — without specifying a wire format.
+**1. Semantics (Informational).** Describes what is hard about realtime
+communication that carries human and agent content in one conversation —
+barge-in, attribution of synthetic content, turn-taking between parties bound by
+different clocks — and gives that problem space a vocabulary.
 
-**2. Substrate (Proposed Standard).** Defines the operations over those terms —
-session lifecycle, context propagation across a trust boundary, modality
-multiplexing, mid-flight cancellation, and participant join, leave, and handoff
-— with no dependency on a particular transport.
+**2. Substrate (Proposed Standard).** Defines the interaction patterns that make
+those semantics operational — session lifecycle, context propagation across a
+trust boundary, modality multiplexing, mid-flight cancellation, and participant
+join, leave, and handoff — without reference to any particular transport.
 
 **3. Transport binding (Proposed Standard).** Maps the substrate onto one
 selected IETF transport, so two vendors implementing it interoperate off the
 shelf.
 
-Each layer supplies the terms the next one uses: semantics gives the substrate
-its vocabulary, the substrate gives the binding its operations. Adoption runs
-the other way and can stop early. Semantics stands alone. The substrate stands
-alone over a transport already chosen. Only the binding requires the layer
-beneath it.
+The semantics document states the problem in terms that transfer to any stack,
+the substrate answers it, and the binding makes that answer deployable on one
+wire. Only the last of the three needs the one before it. A team can take the
+semantics to audit a system it already runs, or implement the substrate over a
+transport it has already committed to, and stop there.
 
 ### Milestones
 
