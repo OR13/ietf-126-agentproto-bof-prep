@@ -59,45 +59,36 @@ found each other.
 
 ## Deliverables
 
-### 1. Semantics (Informational)
+**1. Semantics (Informational).** Names what a realtime agent interaction is
+made of — participant, turn, interruption, context, modality, trust boundary,
+handoff — without specifying a wire format.
 
-Shared taxonomy for realtime agent interaction; no wire format. Participant,
-turn, interruption, context, modality, trust boundary, handoff.
+**2. Substrate (Proposed Standard).** Defines the operations over those terms —
+session lifecycle, context propagation across a trust boundary, modality
+multiplexing, mid-flight cancellation, and participant join, leave, and handoff
+— with no dependency on a particular transport.
 
-Alone, it gives two implementers who have never spoken a common way to describe
-the same failure, and a yardstick for measuring an existing stack against the
-problem statement.
+**3. Transport binding (Proposed Standard).** Maps the substrate onto one
+selected IETF transport, so two vendors implementing it interoperate off the
+shelf.
 
-### 2. Substrate (Proposed Standard)
+Each layer supplies the terms the next one uses: semantics gives the substrate
+its vocabulary, the substrate gives the binding its operations. Adoption runs
+the other way and can stop early. Semantics stands alone. The substrate stands
+alone over a transport already chosen. Only the binding requires the layer
+beneath it.
 
-The protocol operations, independent of transport: session lifecycle, context
-propagation across a trust boundary, modality multiplexing, mid-flight
-cancellation, and participant join, leave, and handoff.
+### Milestones
 
-Transport independence follows from the problem statement — this interop is
-needed in more than one deployment context, and a substrate welded to one
-transport serves one of them.
+Both fall under deliverable 3, and the order between them is the point.
 
-Alone, it lets a team implement standard semantics over a transport they have
-already chosen.
+1. **Transport evaluation criteria.** The properties a candidate transport has
+   to provide, agreed before any candidate is named.
+2. **Transport selection.** One transport chosen against those criteria, with
+   the reasoning in the record.
 
-### 3. Transport binding (Proposed Standard)
-
-Two documents in order: evaluation criteria for candidate transports, then the
-binding to the selected one. Criteria first and in public, because the choice
-among modern IETF transports is contested and a selection without stated
-criteria gets relitigated indefinitely.
-
-This is the layer vendors need for off-the-shelf interop, and the one layer that
-depends on another — layer two, by construction.
-
-## Why this framing
-
-The WG-forming BOF at IETF 126 backed the work and rejected the scope. Sense of
-the room, not a binding vote: form a working group, 154 yes / 51 no; initial
-scope correct, 38 yes / 124 no / 40 no opinion. This framing narrows the
-problem, separates the deliverables, and hands security and discovery to the
-groups that already own them.
+Criteria first and in public, because the choice among modern IETF transports is
+contested and a selection without stated criteria gets relitigated indefinitely.
 
 ## Links
 
