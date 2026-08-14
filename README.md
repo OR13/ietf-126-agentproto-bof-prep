@@ -1,38 +1,18 @@
-# IETF 126 — agentproto BOF prep
+# ietf-agentproto
 
-Public notes and curated links for preparing for the **agentproto** BOF
-(*Agent Communication Protocols*) at **IETF 126, Vienna, 18–24 July 2026**.
+Public workspace for work related to **agentproto** (Agent Communication
+Protocols) at the IETF.
 
-This repo summarizes **public** information and gathers links. Meeting and
-coordination details are intentionally **not** published (kept local; see
-`.gitignore`).
+- Datatracker group: <https://datatracker.ietf.org/group/agentproto/about/>
+- Mailing list archive: <https://mailarchive.ietf.org/arch/browse/agent2agent/>
 
-## The BOF
+## Status
 
-| | |
-|---|---|
-| **Name** | Agent Communication Protocols |
-| **Acronym** | `agentproto` |
-| **Datatracker** | <https://datatracker.ietf.org/group/agentproto/about/> |
-| **Status** | WG-forming BOF — not yet chartered |
-| **Area** | Applications & Real-Time (ART) |
-| **Chairs** | Leslie Daigle, Orie Steele |
-| **Responsible AD** | Charles Eckel |
-| **Format** | 2 hours · ~200 expected |
-| **Mailing list** | [`agent2agent@ietf.org`](https://mailarchive.ietf.org/arch/browse/agent2agent/) |
-| **Zulip** | [stream `agentproto`](https://zulip.ietf.org/#narrow/stream/agentproto) |
-| **BOF request** | [`bofreq-krishnan-agent-communication-protocols-02`](https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/) (approved 2026-06-03) |
+Reset to a clean slate. This repository was previously
+`OR13/ietf-126-agentproto-bof-prep`; its IETF 126 BOF-prep notes are stale and
+have been removed from the working tree. They remain reachable in git history —
+nothing was rewritten.
 
-## Contents
-
-- [`bof.md`](bof.md) — BOF dossier: problem statement, scope, deliverables (public).
-- [`drafts.md`](drafts.md) — input Internet-Drafts cited by the BOF request.
-- [`links.md`](links.md) — related IETF datatracker links.
-- [`timeline.md`](timeline.md) — public milestones & deadlines we're hitting.
-
-## Note on scope of this repo
-
-Public only. Public IETF deadlines and our milestones live in
-[`timeline.md`](timeline.md). Private **coordination** — session agendas,
-attendee lists, call links, prep-call schedules — is not published; it lives
-outside version control.
+Anything published here is public by definition. Coordination material —
+agendas, attendee lists, call links, prep-call schedules — does not belong in
+this repository.
