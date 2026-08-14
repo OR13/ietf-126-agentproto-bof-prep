@@ -1,171 +1,125 @@
-# agentproto: the three layers of scope
+# agentproto: layers of scope
 
 A companion to the draft charter for **Agent Communication Protocols
 (`agentproto`)**, a proposed IETF working group in the Applications and
-Real-Time (ART) area. Read this first, then read the charter — this explains the
-shape of the scope, and the charter is the text that actually binds.
+Real-Time (ART) area. Read this first, then read the charter — the charter is
+the text that binds.
 
-This is an unofficial explainer written to help people orient. It is not a chair
-position, not a consensus statement, and not a substitute for anything on the
-list.
+This is an unofficial explainer. It is not a chair position and not a consensus
+statement.
+
+## Problem statement
+
+There is a need to enable interoperable cross-trust-domain realtime media
+communications, to deliver cost-effective streaming-media-based agentic
+experiences at Internet scale.
+
+Every clause is load-bearing. **Realtime media** is the case that existing
+request/response plumbing does not serve: voice and video moving between
+participants while text and tool results move alongside them, with interruption
+and cancellation that must preempt work already in flight. **Cross trust domain**
+is what makes it an interoperability problem rather than a framework problem —
+inside one vendor's deployment this is already solved, badly and privately, N
+times over. **Cost-effective at Internet scale** is the constraint that rules out
+answers that work in a demo and collapse at fanout. And **agentic experiences**
+is the demand driver, not a new physics: agents are why this traffic pattern
+suddenly matters, not why it is hard.
+
+## Scoping
+
+The working group addresses this problem **in layers**, and the layering is a
+deliberate adoption strategy rather than a taxonomy. An implementer must be able
+to take one deliverable and benefit from it without taking the others. Someone
+who only needs a shared vocabulary should get value from the first layer alone.
+Someone who has already committed to a transport should be able to implement the
+substrate over it without waiting for the working group's own binding. Partial
+adoption is a design goal, and any deliverable that can only be used as part of
+the full set has failed this test.
+
+Two things are explicitly **out of scope**.
+
+**Security** — identity, authentication, authorization, and credentialing — is
+consumed, not defined. Agent identity work belongs in WIMSE, delegated
+authorization in OAuth, automated-client authentication in webbotauth. The
+working group will state what security properties its deliverables require and
+raise gaps with the groups that own those mechanisms. It will not specify them
+here.
+
+**Discovery** is out of scope. How a party finds another party, and how
+capabilities are advertised and resolved, is a separate problem with separate
+existing work. The deliverables assume the participants have already found each
+other.
+
+Both exclusions are scope discipline, not dismissals. A cross-trust-domain
+protocol that ignored security would be useless; the position is that this group
+consumes those mechanisms rather than reinventing them.
+
+## The layers, as deliverables
+
+### 1. Semantics (Informational)
+
+Describes how agents interact with each other in realtime, and provides a
+vocabulary for the challenges and opportunities that arise as communication
+scales and changes to support human and agent collaboration.
+
+This layer names things: participant, turn, interruption, context, modality,
+trust boundary, handoff. It does not specify bits. Its value is that two
+implementers who have never spoken can describe the same failure to each other
+and agree they are describing the same failure. It is also the layer that makes
+the case — the interaction patterns documented here are the evidence that the
+substrate is needed and the yardstick the substrate is measured against.
+
+Usable alone, by anyone writing about agent communication or evaluating an
+existing protocol against the problem statement.
+
+### 2. Substrate (Proposed Standard)
+
+Specifies how the semantics fit together to solve the problem, without binding
+to a specific transport.
+
+This is the protocol: how a realtime interaction is established, how context is
+carried and propagated across a trust boundary, how modalities are negotiated
+and multiplexed, how interruption and cancellation propagate, how a participant
+joins, leaves, or is replaced. Transport independence is not architectural
+tidiness — it is the requirement that this interoperability is needed in more
+than one deployment context, and a substrate welded to one transport can only
+serve one of them.
+
+Usable alone, by anyone willing to specify their own binding over a transport
+they have already chosen.
+
+### 3. Substrate binding (Proposed Standard)
+
+The working group shall determine how to evaluate candidate transports, select
+one, and specify a concrete binding that, when deployed, addresses the problem
+statement.
+
+Two deliverables in sequence: the evaluation criteria, then the binding. The
+criteria come first and in public, because the choice among modern IETF
+transports is contested and a selection without stated criteria will be
+relitigated indefinitely. The binding is what turns the substrate from a
+specification into something two vendors can deploy and interoperate on.
+
+Usable alone only in the sense that it is the fastest path to running code — it
+depends on layer two by construction, which is the one place the layering does
+not buy independence.
+
+## Why this framing
+
+The WG-forming BOF at IETF 126 supported the work and rejected the scope as
+drawn. On a sense of the room — a hum, not a binding vote — a working group
+should be formed (154 yes / 51 no), and the initial scope was not correct (38
+yes / 124 no / 40 no opinion). The layering above is a response to that: a
+narrower problem statement, deliverables that are separable, and two explicit
+exclusions where the previous draft invited overlap with groups that already own
+the work.
+
+## Links
 
 - Draft charter: <https://github.com/ietf-artarea/charters/blob/main/agentproto/charter.md>
-- Datatracker group: <https://datatracker.ietf.org/group/agentproto/about/>
-- BOF request: <https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/>
+  — revision happens in that repository; pull requests welcome.
 - Mailing list: `agentproto@ietf.org` —
   [archive](https://mailarchive.ietf.org/arch/browse/agentproto) ·
   [subscribe](https://www.ietf.org/mailman/listinfo/agentproto)
-
-## Why a primer about scope specifically
-
-At the WG-forming BOF at IETF 126 in Vienna, the room supported almost
-everything except the scope. On a sense of the room — a hum, not a binding vote,
-with roughly 315 people participating — the need for interoperability was clear
-(155 yes / 30 no), the IETF was the right venue (158 / 30), and a working group
-should be formed on this topic (154 / 51). Asked whether the initial scope from
-the charter was correct, the room said no: **38 yes, 124 no, 40 no opinion.**
-Deliverables split, 92 / 58 / 49.
-
-That is an unusual result. It is not "this work doesn't belong here." It is "we
-want this work, and the boundaries as drawn are wrong." Every argument since has
-been an argument about where the lines go, which is why the charter is best read
-as three distinct layers of scope rather than one block of text. They differ in
-what they produce, in how contested they are, and — most importantly — in
-whether they put anything new on the wire.
-
-## The picture the charter is drawing
-
-Before the three layers, fix the vertical position, because most of the
-objections at the mic were really objections about position.
-
-**Above** sit the application protocols people already use: MCP and A2A,
-developed under the Linux Foundation, and whatever succeeds them. The charter
-does not propose to replace, absorb, or re-plumb these. It proposes a substrate
-they can sit on. Say this plainly and often, because "rip and replace" is the
-fear in the room and it is the fear that most distorts the reading of the
-charter.
-
-**Below** sit modern IETF transports: QUIC, WebTransport, MoQ, WebRTC. The
-charter consumes these. It does not design them, and any change one of them
-needs goes to the group that owns it.
-
-**Beside** sit identity, authorization, and discovery: OAuth for delegated
-authorization, WIMSE for workload and agent identity, webbotauth for automated
-clients, and the discovery and operational work in the INT and OPS areas. The
-charter is explicit that extensions to OAuth happen in OAuth and extensions for
-independent agent identity happen in WIMSE. agentproto composes their outputs;
-it does not redefine them.
-
-The working group's own scope is agent-to-agent and agent-to-tool communication,
-plus the *protocol* mechanisms for human-to-agent communication — establishing
-sessions, negotiating modalities, exchanging multimodal data. The design of the
-user interface and the rendering of agent output is explicitly out. That
-distinction is worth holding onto; "human-agent communication" reads as UX to
-anyone skimming, and it isn't.
-
-## Layer one: the wire
-
-The **AI Agent Session Protocol** is the only deliverable that puts new bits on
-the wire. It creates and maintains a session between agents, or between an agent
-and a tool, carrying model context, tool-call results, and chat messages
-bidirectionally. It has to survive network and server failures and recover
-gracefully, span short-lived and long-lived interactions, carry real-time voice
-and video alongside semi-real-time chat and non-real-time bulk transfer, and
-support point-to-multipoint as well as point-to-point.
-
-The motivating example from the BOF was mundane and sharp: an agent books a
-business trip, and the user says "cancel the hotel, keep the flight." That
-cancellation has to preempt work already in flight, across parties and across
-hops, on a control path faster than the bulk path it is interrupting. HTTP is
-stateless. WebSocket has no multiplexing, no priority, no partial teardown. MoQ
-is close but not agent-aware. That gap is the entire argument for this layer.
-
-This is also the layer the room told the group to sharpen. The strongest thread
-was that "session" is the wrong word — the application layer above already uses
-it for something specific, and MCP is moving toward statelessness. Ted Hardie
-proposed reframing the deliverable as a signaling protocol for the setup and
-management of **context propagation** across trust boundaries, multi-party and
-multimodal, noting that SIP and WebRTC manage context mostly at initiation
-whereas here the context must persist and travel with a party across devices and
-time. Jonathan Rosenberg reached the same place from the other direction: a
-context management protocol, distinct from SIP, that starts a context, appends
-audio and video and text to it, pauses it, resumes it. Brian Trammell agreed on
-substance and warned that "context propagation" will confuse AI researchers, and
-pressed the question that should govern this layer — what is the **minimum
-viable set of primitives** that makes the genuinely new thing work? What is new,
-on his reading, is not that programs talk to each other but the dynamicity of
-connectivity and deployment.
-
-So: one protocol, deliberately small, defined by the minimum set of primitives
-for managing context across trust boundaries, with an explicit statement of what
-it standardizes, what it consumes, and what it leaves to the layers above and
-below.
-
-## Layer two: the composition
-
-The **AI Agent Protocol Framework** puts nothing on the wire. It names the
-building blocks, says how they compose into a working agent scenario, and marks
-where the gaps are that other groups should fill. It is architecture, and it is
-the contested layer.
-
-The case for it: agent communication is a protocol *suite*, not a protocol, and
-something has to bind the pieces the IETF defines (Zaheduzzaman Sarker). It
-describes the slots that the identity and authorization groups fill (Justin
-Richer). It takes the outputs of other groups and presents them in a form an
-implementer can consume (Suresh Krishnan). It is how you understand the layers
-at all (Jonathan Rosenberg), and it should arguably come *before* the protocol
-work rather than in parallel (Ted Hardie).
-
-The case against: keep it as a terminology reference and nothing more (Brian
-Trammell); drop it and wait for someone to produce a proof of concept that the
-authorization information really can be passed around safely, then fill the
-identified gaps (Stephen Farrell); leave it out entirely rather than redefine
-work already under way elsewhere, including at the ITU (Arnaud Taddei).
-
-Both readings are coherent, which is why the deliverables question split 92/58.
-The live proposal is that this layer either gets re-scoped with a concrete
-articulation of what it is *for* and a committed editor, or it gets withdrawn.
-If you have a view, this is the one to bring to the list.
-
-## Layer three: the evidence
-
-**Use cases, gap analysis, and requirements** — informational drafts that
-establish what agents actually need to do, which existing protocols already do
-it, and what is genuinely missing. This layer was not contested at the BOF. It
-was repeatedly named as the thing that should come first, because it is what
-converts "we believe there is a gap" into a demonstrated gap that a protocol can
-be measured against.
-
-Treat this as load-bearing rather than preliminary. Layer one is only justified
-to the extent layer three shows that QUIC, HTTP/2, WebTransport, and MoQ do not
-already cover it. Layer two is only useful to the extent layer three shows which
-slots are empty. The informational layer is where the argument is either won or
-lost, and it needs editors more urgently than anything else on the list.
-
-## The one-paragraph version
-
-agentproto proposes to add exactly one new protocol to the Internet — a minimal
-protocol for setting up and managing context as it propagates across trust
-boundaries, multi-party and multimodal — sitting below MCP and A2A and above
-QUIC, WebTransport, MoQ, and WebRTC. Around it, a framework document that
-composes identity and authorization work owned by OAuth, WIMSE, and webbotauth
-rather than reinventing it, and a set of informational drafts establishing that
-the gap is real. The BOF said the problem is worth solving and the IETF is the
-place. It also said these boundaries are not yet drawn correctly. Getting them
-right is the work in front of the list.
-
-## What to read next
-
-Read the [draft charter](https://github.com/ietf-artarea/charters/blob/main/agentproto/charter.md)
-in full — it is short. Charter revision happens in that repository, and pull
-requests are welcome. Discussion happens on `agentproto@ietf.org`
-([subscribe](https://www.ietf.org/mailman/listinfo/agentproto),
-[archive](https://mailarchive.ietf.org/arch/browse/agentproto)). The
-[datatracker group page](https://datatracker.ietf.org/group/agentproto/about/)
-is the system of record, and the
-[BOF request](https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/)
-gives the original framing the room responded to.
-
-Positions attributed above are drawn from the IETF 126 BOF record and are
-summaries, not quotations; the minutes are the authority on what anyone actually
-said.
+- Datatracker group: <https://datatracker.ietf.org/group/agentproto/about/>
+- BOF request: <https://datatracker.ietf.org/doc/bofreq-krishnan-agent-communication-protocols/>
