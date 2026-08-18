@@ -5,8 +5,8 @@ For **`agentproto@ietf.org`** ([archive](https://mailarchive.ietf.org/arch/brows
 `agentproto` (Agent Communication Protocols) is a Birds of a Feather group ([BOF](https://datatracker.ietf.org/group/agentproto/about/)), not (yet) a chartered working group.
 
 This list is for humans to discuss the agenda set by the chairs (designated by the AD responsible for the BoF).
-Sections 1 and 3 are conditions of posting.
-Sections 2, 5 and 6 are advice.
+Sections 1, 2 and 4 are conditions of posting.
+Sections 3, 6 and 7 are advice.
 
 ## 1. Scope and agenda
 
@@ -15,7 +15,14 @@ Posts relate to the posted agenda or to the BOF's purpose, and the chairs defer 
 For the details, see [RFC 2418](https://www.rfc-editor.org/rfc/rfc2418.html) (BCP 25) §3.1 and §3.3, and [RFC 5434](https://www.rfc-editor.org/rfc/rfc5434.html) §4 for the BOF form of the same rule.
 RFC 2418 assumes a charter, which this group does not have yet, so we read it against the BOF's stated purpose.
 
-## 2. Etiquette (recommended)
+## 2. Conduct (required)
+
+Dispute ideas with facts and reasoned argument, not personal attacks.
+This is a condition of posting, not advice.
+The IETF [Note Well](https://www.ietf.org/about/note-well/) applies to every message you send here.
+It binds your posts to the IETF's conduct rules, including [RFC 7154](https://www.rfc-editor.org/rfc/rfc7154.html) §2 (Guidelines for Conduct) and [RFC 7776](https://www.rfc-editor.org/rfc/rfc7776.html) (Anti-Harassment Procedures).
+
+## 3. Etiquette (recommended)
 
 Standard IETF guidance applies: [RFC 7154](https://www.rfc-editor.org/rfc/rfc7154.html) §2 and [RFC 1855](https://www.rfc-editor.org/rfc/rfc1855.html) §3.1.1.
 
@@ -25,17 +32,16 @@ Standard IETF guidance applies: [RFC 7154](https://www.rfc-editor.org/rfc/rfc715
 - **Subject lines.** Keep them accurate, and use a new subject for a new topic.
 - **Quoting.** Quote only the lines you answer, not the whole message (RFC 1855 §3.1.1).
 - **Citations.** Link the RFC, draft, or post you refer to.
-- **Civility.** Dispute ideas with facts and reasoned argument, not personal attacks (RFC 7154 §2).
 - **Clear language.** Write for colleagues whose first language is not English, and avoid slang (RFC 7154 §2).
 - **Thread limits.** Let discussions end.
   Once each side has stated a position twice, take it off-list or ask the chairs to close the thread.
 
-## 3. AI-assisted posts (required)
+## 4. AI-assisted posts (required)
 
 1. **No automatic posting.** An AI tool or agent does not post to this list.
    A human reviews and approves every message, and is accountable for its content.
 2. **Keep text short.** Edit generated text down before you send it.
-   Simplified Technical English is recommended; see section 5.
+   Simplified Technical English is recommended; see section 6.
 3. **Moderation.** The chairs moderate off-agenda AI threads, and say so on-list and to the sender.
    To contest a decision, ask the chairs to explain or reverse it.
 4. **Meta-discussion.** Do not start threads here about this policy.
@@ -46,7 +52,7 @@ Standard IETF guidance applies: [RFC 7154](https://www.rfc-editor.org/rfc/rfc715
 5. **False positives.** Some flagged messages will turn out to have no AI involvement, and the chairs will correct those errors on-list.
    We accept that error rate because consensus needs discussion that humans can read, and because RFC 2418 §3.3 notes that message volume is not by itself an indicator of consensus.
 
-## 4. What "AI slop" means
+## 5. What "AI slop" means
 
 Text that moves work from the sender to every reader.
 Common markers:
@@ -59,7 +65,7 @@ Common markers:
 - A style that does not match your other posts.
 - Near-identical replies across a thread, or a reply to every message in it.
 
-## 5. Simplified Technical English (recommended)
+## 6. Simplified Technical English (recommended)
 
 STE is a controlled English that helps readers who are not native speakers.
 
@@ -74,18 +80,19 @@ Link to it rather than reposting it, because ASD restricts reproduction.
 [Wikipedia's summary](https://en.wikipedia.org/wiki/Simplified_Technical_English) is shorter, and is not the standard.
 STE is a target here, not a conformance test.
 
-## 6. Sustainability
+## 7. Sustainability
 
 Generative AI is not free.
 Each prompt spends computing, energy, and water, and those costs land on grids and energy policy far from this list.
 Delegated work is also work you stop practising, and generated text spends every reader's attention.
 Match the tool to the task: a local or offline tool can check spelling, or summarise a thread, without a large hosted model.
 
-## 7. Governing documents
+## 8. Governing documents
 
 - [RFC 9945](https://www.rfc-editor.org/rfc/rfc9945.html) (BCP 245): IETF Community Moderation. Its designated discussion forum is `mod-discuss@ietf.org` ([archive](https://mailarchive.ietf.org/arch/browse/mod-discuss/)).
 - [RFC 2418](https://www.rfc-editor.org/rfc/rfc2418.html) (BCP 25): Working Group Guidelines and Procedures.
 - [RFC 7154](https://www.rfc-editor.org/rfc/rfc7154.html): IETF Guidelines for Conduct.
 - [RFC 7776](https://www.rfc-editor.org/rfc/rfc7776.html): IETF Anti-Harassment Procedures.
+- [Note Well](https://www.ietf.org/about/note-well/): the notice that binds every contribution to these rules.
 
 Chair and Area Director contacts are on the [datatracker page](https://datatracker.ietf.org/group/agentproto/about/).
